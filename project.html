@@ -5,183 +5,45 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
-<body>
- <!--<input id="inp1" type="text" >
- <button id="pu">submit</button>!-->
- 
- <div style="text-align: center;background-color:brown;">
 
- <div>
-   <h3>الوزن</h3>
-   <input type="text" id="weight_input">
- </div>
- <div>
-    <h3>الطول</h3>
-    <input type="text" id="height_input">
- </div>
- <div>
-  <button id="submit_btn">حساب</button>
-</div>
- <div>
-    <h4 id="bmi"></h4>
-    <h3 id="bmi_category"></h3>
- </div>
-</div>
-</body>
+<body style="background-color: white;">
+
+ 
+ 
+ <div style="text-align: center;background-color:rgb(245, 241, 241);">
+
+
+   <input type="text" id="student_input">
+ 
+  <button id="submit_btn">submit</button>
+
+  <button id="Delete_btn">Delete</button>
+   <div id="students"></div>
+   
+   <div style="text-align: center; background-color: bisque;" id="result"></div>
+
+ </body>
 <script>
 
-      
-        
+var students=["Khalid","Ahmad","Yarob"]
+      document.getElementById("students").innerHTML=students
         document.getElementById("submit_btn").addEventListener("click",function(){
            
-            var weight=document.getElementById("weight_input").value 
-            var height=document.getElementById("height_input").value
+            var student_name=document.getElementById("student_input").value 
+             students.push(student_name)
+             console.log(students)
+             document.getElementById("students").innerHTML=students
+             document.getElementById("student_input").value=""
+        })
+      
+        document.getElementById("Delete_btn").addEventListener("click",function(){
+           
+            var student_name=document.getElementById("student_input").value 
+             students.splice(students.indexOf(student_name),1)
+             console.log(students)
+             document.getElementById("students").innerHTML=students
+        })
+
         
-        var bmi=weight/(height*height)
-        document.getElementById("bmi").innerHTML=bmi
-        if(bmi<18){
-            var es="نحافة"
-        }else if(bmi>=18 && bmi<=24.9){
-            es="وزن مثالي"
-        }else if(bmi>=25 && bmi<=29.9){
-            es="وزن زائد"
-        }else if(bmi>=30 && bmi<=34.5){
-            es="سمنة درجة اولى"
-        }else if(bmi>=35 && bmi<=39.5){
-            es="سمنة درجة ثانية"
-        }else if(bmi>=40){
-            es="سمنة خطيرة"
-        }
-        document.getElementById("bmi_category").innerHTML=es
-        console.log(es)
-        
-    })
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </html>
