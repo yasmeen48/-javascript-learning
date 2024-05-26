@@ -5,28 +5,44 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
- <div style="text-align: center;background-color:rgb(245, 241, 241);">
+<body>
+  <div style="text-align: center; color: bisque;">
 
-  <h1 style="color:black ;">"Vowel Letters : (A,E,I,O,U)"</h1>
-  <br>
-   <input type="text" id="user-input">
-  <br>
-    <button id="submit_btn">submit</button>
-    <div style="text-align: center; color: bisque;" id="result"></div>
-    
- </div>
+<h1 style="color:rgb(16, 15, 15) ;">Find Students</h1>
+<br>
+<div><input type="text" id="user-input">
 
+   <button id="search_btn">search</button></div>
+   <div style="text-align: center; color: rgb(8, 7, 7);" id="result"></div>
+   
+   <div style="text-align: center; color: bisque;" id="result"></div>
+  </div> 
  </body>
 <script>
 
-document.getElementById("submit_btn").addEventListener("click",function(){
-            document.getElementById("result").innerHTML=``
-           var v=["A","E","I","U","O","a","e","i","u","o"]
-           var user_input=document.getElementById("user-input").value 
-          for (var i of user_input){
-            if(v.includes(i)==false)
-            {document.getElementById("result").innerHTML+=` ${i} </br> `}
+var students=["Khalid","Ahmad","Yarob"]
+       document.getElementById("search_btn").addEventListener("click",function(){
+           
+           
+           var user_input=document.getElementById("user-input").value.toLowerCase()
+           console.log(user_input)
+           var isFound=false
+          for (var i=0 ;i<students.length;i++){
+            var lowerd=students[i].toLowerCase()
+            if(user_input==lowerd)
+            {
+              isFound=true
+        
+             }
           }
+          if(isFound==true){
+            document.getElementById("result").innerHTML=` ${user_input} in the school </br> `
+            }
+            else{
+              
+            document.getElementById("result").innerHTML=` ${user_input} is Not in the school </br> `
+          }
+          
        })
         
 </script>
